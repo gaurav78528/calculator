@@ -1,7 +1,7 @@
 Deployed Link :- https://hra-advance-tax-calculator.netlify.app/
 
 
-# Catelog Viewer
+# Calculator
 
 Tech stack used:
 
