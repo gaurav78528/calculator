@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/styles.css"
+import "../styles/styles.css";
 const AdvanceTaxCalculator = () => {
   const [basicSalary, setBasicSalary] = useState(null);
   const [hraReceived, setHraReceived] = useState(null);
@@ -61,11 +61,13 @@ const AdvanceTaxCalculator = () => {
 
   return (
     <div className="container">
-      <h4 className="calculator-heading">Advance Tax Calculator</h4>
+      <h4 className="calculator-heading">
+        ADVANCE TAX CALCULATOR FOR FINANCIAL YEAR 2023-24
+      </h4>
       <form>
-        <div className="grey-row content">
-          <label>Basic Salary</label>
-          <input
+        <div className="grey-row content" id="tax-payer">
+          <label>Tax Payer</label>
+          {/* <input
             type="text"
             maxLength={10}
             value={basicSalary}
@@ -74,21 +76,42 @@ const AdvanceTaxCalculator = () => {
             className={`${
               visited.includes("basicSalary") && !basicSalary ? "visited" : ""
             }`}
-          />
+          /> */}
+          <select>
+            <option value="">Select</option>
+            <option value="">Individual</option>
+            <option value="">HUF</option>
+            <option value="">AOPs/BOI</option>
+            <option value="">Domestic Company</option>
+            <option value="">Foreign Company</option>
+            <option value="">Firms</option>
+            <option value="">LLP</option>
+            <option value="">Co-operative Society</option>
+          </select>
         </div>
-        <div className="content">
-          <label>DA forming part of salary</label>
-          <input
-            type="text"
-            maxLength={10}
-            value={da}
-            onChange={(e) => setDa(parseInt(e.target.value))}
-            onClick={() => handleInputClick("da")}
-            className={`${visited.includes("da") && !da ? "visited" : ""}`}
-          />
+        <div>
+          <div className="content">
+            <label>Whether opting for taxation under Section 115BAC?</label>
+            <select>
+              <option value="">Select</option>
+              <option value="">Yes</option>
+              <option value="">No</option>
+            </select>
+          </div>
+          <div className="content">
+            <label>Net Taxable Income</label>
+            <input
+              type="text"
+              maxLength={10}
+              value={da}
+              onChange={(e) => setDa(parseInt(e.target.value))}
+              onClick={() => handleInputClick("da")}
+              className={`${visited.includes("da") && !da ? "visited" : ""}`}
+            />
+          </div>
         </div>
         <div className="grey-row content">
-          <label>Commission (as % of turnover achieved by the employee)</label>
+          <label>Income Tax</label>
           <input
             type="text"
             maxLength={10}
@@ -102,7 +125,7 @@ const AdvanceTaxCalculator = () => {
         </div>
 
         <div className="content">
-          <label>HRA Received</label>
+          <label>Surcharge</label>
           <input
             type="text"
             maxLength={10}
@@ -116,7 +139,7 @@ const AdvanceTaxCalculator = () => {
         </div>
 
         <div className="grey-row content">
-          <label>Rent Paid</label>
+          <label>Education Cess</label>
           <input
             type="text"
             maxLength={10}
@@ -129,37 +152,70 @@ const AdvanceTaxCalculator = () => {
           />
         </div>
         <div className="content">
-          <label>Tick if residing in metro city</label>
-          <div>
-            <input
-              type="checkbox"
-              // ;
-              // value={rentPaid}
-              onChange={(e) => setMetroCity(event.target.checked)}
-            />
-            <span className="checkbox-text">(Tick if Yes)</span>
-          </div>
+          <label>Secondary and higher education cess</label>
+          <input
+            type="text"
+            maxLength={10}
+            value={rentPaid}
+            onChange={(e) => setRentPaid(parseInt(e.target.value))}
+            onClick={() => handleInputClick("rentPaid")}
+            className={`${
+              visited.includes("rentPaid") && !rentPaid ? "visited" : ""
+            }`}
+          />
         </div>
         <div className="grey-row content">
-          <label>Exempted House Rent Allowance</label>
+          <label>Total Tax Liability</label>
           <input
-            type="number"
-            value={exemptedHRA}
-            disabled
-            className="disabled"
+            type="text"
+            maxLength={10}
+            value={rentPaid}
+            onChange={(e) => setRentPaid(parseInt(e.target.value))}
+            onClick={() => handleInputClick("rentPaid")}
+            className={`${
+              visited.includes("rentPaid") && !rentPaid ? "visited" : ""
+            }`}
           />
         </div>
         <div className="content">
-          <label>Taxable House Rent Allowance</label>
+          <label>Relief</label>
           <input
-            type="number"
-            value={taxableHRA}
-            disabled
-            className="disabled"
+            type="text"
+            maxLength={10}
+            value={rentPaid}
+            onChange={(e) => setRentPaid(parseInt(e.target.value))}
+            onClick={() => handleInputClick("rentPaid")}
+            className={`${
+              visited.includes("rentPaid") && !rentPaid ? "visited" : ""
+            }`}
           />
         </div>
-        <div>{/* <label>: </label>
-          <span>{hraExempt}</span> */}</div>
+        <div className="grey-row content">
+          <label>TDS/TCS/MAT (AMT) Credit Utilized</label>
+          <input
+            type="text"
+            maxLength={10}
+            value={rentPaid}
+            onChange={(e) => setRentPaid(parseInt(e.target.value))}
+            onClick={() => handleInputClick("rentPaid")}
+            className={`${
+              visited.includes("rentPaid") && !rentPaid ? "visited" : ""
+            }`}
+          />
+        </div>
+        <div className="content">
+          <label>Assessed Tax</label>
+          <input
+            type="text"
+            maxLength={10}
+            value={rentPaid}
+            onChange={(e) => setRentPaid(parseInt(e.target.value))}
+            onClick={() => handleInputClick("rentPaid")}
+            className={`${
+              visited.includes("rentPaid") && !rentPaid ? "visited" : ""
+            }`}
+          />
+        </div>
       </form>
 
       <div className="flex-center">
